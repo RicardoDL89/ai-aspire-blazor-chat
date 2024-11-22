@@ -4,6 +4,7 @@ var cache = builder.AddRedis("cache");
 
 var ollama = builder.AddOllama(name: "ollama", port: null)
                     .AddModel("phi3.5")
+                    .WithContainerRuntimeArgs("--gpus=all")
                     .WithOpenWebUI()
                     .WithDataVolume()
                     .PublishAsContainer();
